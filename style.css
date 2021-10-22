@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-container {
+  width: 1080px;
+}
+
+h1 {
+  font-size: 42px;
+  color: #333;
+  text-align: center;
+}
+
+.input-todo {
+  width: 800px;
+  height: 50px;
+  font-size: 35px;
+}
+
+#button-save {
+  width: 105px;
+  height: 50px;
+  background-color: blue;
+  margin-left: 70px;
+  color: white;
+
+}
+
+#button-delete{
+  width: 50px;
+  height: 30px;
+  color:white;
+
+  
+  background-color: crimson;
+
+}
+
+
+.class-div{
+  width: 500px;
+}
+
+li {
+  font-size: 32px;
+}
+
+.input-check{
+  width: 5px;
+  height: 5px;
+}
+
+#check-input{
+  width: 20px;
+  height: 20px;
+}
