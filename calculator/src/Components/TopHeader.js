@@ -13,7 +13,7 @@ const TopHeader=()=>
 {
     return(
         <div style={styles.header}>
-            <span style={styles.text}>Calculator</span>
+            <span style={styles.text}>Calculator </span>
         </div>
         
     );
