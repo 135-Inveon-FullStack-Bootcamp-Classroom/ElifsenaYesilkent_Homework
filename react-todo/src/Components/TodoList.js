@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import carpiEmoji from '../images/carpiEmoji.png';
 import tikEmoji from '../images/tikEmoji.png';
 
@@ -12,7 +11,7 @@ const check = (e) => {
 }
 
 
-const TodoList = ({todos,setTodos,allDeleteClick,buttonDelete}) => (
+const TodoList = ({todos,allDeleteClick,buttonDelete}) => (
     <div style={{marginLeft: "250px", marginRight: "250px",
      marginTop:"10px", backgroundColor :"#D5DBDB", 
     display: "flex", flexDirection: "column", }}>
