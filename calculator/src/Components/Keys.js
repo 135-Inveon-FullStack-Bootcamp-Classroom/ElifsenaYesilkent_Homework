@@ -40,7 +40,7 @@ const Keys=()=>{
          <KeyButton label="6" lightKey/>
          <KeyButton label="-"/>
 
-         <KeyButton label="1"  lightKey/>
+         <KeyButton label="1"  lightKey />
          <KeyButton label="2" lightKey/>
          <KeyButton label="3" lightKey/>
          <KeyButton label="+"/>
