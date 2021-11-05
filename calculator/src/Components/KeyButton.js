@@ -54,6 +54,29 @@ const KeyButton=({label,isBlue,lightKey,isNumber})=>{
                   return setOperationText(valueText+label),setLastOperation(true),setValueText(Number(lastValue)/Number(valueText)),setLastValue(Number(valueText));
                 case '=':
                   return   setValueText(Number(valueText))
+                case '<-':
+                  return   setValueText( valueText.slice(0,-1)); 
+                case 'C':
+                  return   setValueText("0"),setOperationText(""),setLastOperation(false),setLastValue(0); 
+                case 'x^2':
+                  return   setValueText(Math.pow(valueText, 2)),
+                  setOperationText("sqr("+valueText+")"),setLastOperation(true),setLastValue(0);  
+                case '1/x':
+                  return  setValueText(1/Number(valueText)),
+                  setOperationText("1/("+valueText+")"),setLastOperation(true),setLastValue(1/Number(valueText));
+                case '√x':
+                  return  setValueText(Math.sqrt(Number(valueText))),
+                  setOperationText("√("+valueText+")"),setLastOperation(true),setLastValue(Math.sqrt(Number(valueText)));
+                case ',':
+                    if((valueText.search(".")===-1))
+                        return setValueText(valueText+"."),setLastOperation(false),setLastValue(0),console.log((valueText.search(","))+" ve "+valueText); 
+                case '+/-': 
+                    if(valueText===0)
+                        return
+                    else if(Math.abs(valueText)===valueText)
+                        return setValueText("-"+valueText),setLastOperation(false),setLastValue(0);
+                    else 
+                        return      
                 default:
                   return console.log("başka değer");
             }
