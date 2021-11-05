@@ -25,28 +25,28 @@ const Keys=()=>{
          <KeyButton label="C"/>
          <KeyButton label="<-"/>
 
-         <KeyButton label="1/x"/>
+         <KeyButton label="1/x" />
          <KeyButton label="x^2"/>
          <KeyButton label="√x"/>
          <KeyButton label="/"/>
 
-         <KeyButton label="7" lightKey />
-         <KeyButton label="8"lightKey/>
-         <KeyButton label="9" lightKey/>
+         <KeyButton label="7" lightKey isNumber />
+         <KeyButton label="8"lightKey isNumber/>
+         <KeyButton label="9" lightKey isNumber/>
          <KeyButton label="x"/>
 
-         <KeyButton label="4" lightKey/>
-         <KeyButton label="5" lightKey/>
-         <KeyButton label="6" lightKey/>
+         <KeyButton label="4" lightKey isNumber/>
+         <KeyButton label="5" lightKey isNumber/>
+         <KeyButton label="6" lightKey isNumber/>
          <KeyButton label="-"/>
 
-         <KeyButton label="1"  lightKey />
-         <KeyButton label="2" lightKey/>
-         <KeyButton label="3" lightKey/>
+         <KeyButton label="1"  lightKey isNumber/>
+         <KeyButton label="2" lightKey isNumber/>
+         <KeyButton label="3" lightKey isNumber/>
          <KeyButton label="+"/>
 
          <KeyButton label="+/-" lightKey/>
-         <KeyButton label="0" lightKey/>
+         <KeyButton label="0" lightKey isNumber/>
          <KeyButton label="," lightKey/>
          <KeyButton label="=" isBlue/>
         </div>

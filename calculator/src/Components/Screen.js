@@ -1,3 +1,6 @@
+import { CalcContext } from "../CalcContext";
+import { useContext } from "react";
+
 const Styles={
     screen:{
         //backgroundColor:"red",
@@ -31,13 +34,14 @@ const Styles={
 };
 
 const Screen=()=>{
+    const {valueText,operationText} =useContext(CalcContext);//CalcContext'den değerleri alıyoruz
     return(
     <div style={Styles.screen}>
         <div style={Styles.operation}>
-            25+45
+            {operationText}
         </div>
         <div style={Styles.value}>
-            35
+            {valueText}
         </div>
     </div>
     );
