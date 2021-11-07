@@ -17,7 +17,7 @@ const styles={
 
 
 const KeyButton=({label,isBlue,lightKey,isNumber})=>{
-    const {valueText,lastValue,setLastValue,setValueText,setOperation,setOperationText,lastOperation,setLastOperation}=useContext(CalcContext);
+    const {valueText,lastValue,setLastValue,setValueText,setOperation,setOperationText,lastOperation,operation,setLastOperation}=useContext(CalcContext);
     
 
     const isBluestyle=isBlue?{backgroundColor:"#1e81b0"}:{};
@@ -45,15 +45,25 @@ const KeyButton=({label,isBlue,lightKey,isNumber})=>{
         {
             switch(label) {
                 case '+':
-                    return setOperationText(valueText+label),setLastOperation(true),setValueText(Number(lastValue)+Number(valueText)),setLastValue(Number(valueText));
+                    return setOperationText(valueText+label),setLastOperation(true),setOperation("+"),setValueText(Number(lastValue)+Number(valueText)),setLastValue(Number(valueText));
                 case '-':
-                  return  setOperationText(valueText+label),setLastOperation(true),setValueText(Number(lastValue)-Number(valueText)),setLastValue(Number(valueText));
+                  return  setOperationText(valueText+label),setLastOperation(true),setOperation("-"),setValueText(Number(lastValue)-Number(valueText)),setLastValue(Number(valueText));
                 case 'x':
-                  return  setOperationText(valueText+label),setLastOperation(true),setValueText(Number(lastValue)*Number(valueText)),setLastValue(Number(valueText));
+                  return  setOperationText(valueText+label),setLastOperation(true),setOperation("x"),setValueText(Number(lastValue)*Number(valueText)),setLastValue(Number(valueText));
                 case '/':
-                  return setOperationText(valueText+label),setLastOperation(true),setValueText(Number(lastValue)/Number(valueText)),setLastValue(Number(valueText));
+                  return setOperationText(valueText+label),setLastOperation(true),setOperation("/"),setValueText(Number(lastValue)/Number(valueText)),setLastValue(Number(valueText));
                 case '=':
-                  return   setValueText(Number(valueText))
+                  console.log(operation)
+                  if(operation==="+")
+                    return   setValueText(Number(valueText)+lastValue),setOperationText(lastValue+operation+valueText+"=");
+                  else if(operation==="-")
+                    return  setValueText(Number(valueText)-lastValue),setOperationText(lastValue+operation+valueText+"=");
+                  else if(operation==="x")
+                    return  setValueText(Number(valueText)*lastValue),setOperationText(lastValue+operation+valueText+"=");
+                  else if(operation==="/")
+                    return  setValueText(Number(valueText)/lastValue),setOperationText(lastValue+operation+valueText+"=");
+                  else
+                  return   setValueText(Number(valueText));
                 case '<-':
                   return   setValueText( valueText.slice(0,-1)); 
                 case 'C':
