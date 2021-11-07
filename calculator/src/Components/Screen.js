@@ -1,4 +1,4 @@
-import { CalcContext } from "../CalcContext";
+import { CalcContext } from "../calcContext";
 import { useContext } from "react";
 
 const Styles={

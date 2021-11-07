@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CalcContext } from "../CalcContext";
+import { CalcContext } from "../calcContext";
 
 const styles={
     keyContainer:{
