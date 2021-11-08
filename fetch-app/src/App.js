@@ -34,7 +34,8 @@ function App() {
        <ul style={{listStyleType:"none",  display:"flex", flexDirection:"row",flexWrap:"wrap",justifyContent:"space-around"}}>
         {items.map(item => (
           <div style={{padding:"10px"}}>
-            <li style={{paddingTop:"15px", border: "3px solid black", height:"190px", width:"200px"}} key={item.id}>
+            <li style={{paddingTop:"15px", border: "3px solid black",
+             height:"190px", width:"200px"}} key={item.id}>
               <img src={item.url} style={{width:"100px", height:"100px"}}></img>
               <br/>
               <b>{item.title}</b>
