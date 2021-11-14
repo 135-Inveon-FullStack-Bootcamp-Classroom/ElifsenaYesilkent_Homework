@@ -5,7 +5,7 @@ const Layout=({children})=>{
     return(
         <div className="App">
             <Header/>
-            <div>{children}</div>
+            <div style={{padding:"50px"}}>{children}</div>
         </div>
     );
 };
