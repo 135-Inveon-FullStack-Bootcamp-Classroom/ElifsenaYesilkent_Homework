@@ -11,8 +11,9 @@ const CapsList=()=>{
         fetch("https://api.imgflip.com/get_memes")
         .then((response)=> response.json())
         .then((result)=>setMemes(result.data.memes));
-    });
-   
+
+    },[]);
+   if (!memes) return <p>loading...</p>
     return (
         <Layout>
           {memes.map(meme=>(
