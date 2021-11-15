@@ -34,7 +34,7 @@ function onInputClick(elem)
   if(source==notOk)
   {
     elem.src=ok;
-    localStorage.setItem("List", ulList.innerHTML);
+ 
   }
   else
   {
