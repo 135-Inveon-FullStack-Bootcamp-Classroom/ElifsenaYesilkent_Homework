@@ -11,5 +11,6 @@ namespace week_5_OOP.Formula1.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string EngineName { get; set; }  
+        public  int Point { get; set; }
     }
 }

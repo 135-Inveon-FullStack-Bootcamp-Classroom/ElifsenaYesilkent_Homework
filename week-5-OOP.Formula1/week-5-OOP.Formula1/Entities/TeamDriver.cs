@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week_5_OOP.Formula1.Entities
 {
-    internal class TeamDriver: Driver
+    public class TeamDriver: Driver
     {
         public int Point { get; set; }
         public int CarNo { get; set; }
