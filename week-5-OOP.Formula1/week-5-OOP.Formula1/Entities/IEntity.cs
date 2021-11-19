@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week_5_OOP.Formula1.Entities
 {
-    public interface IEntity
+    public interface IEntity //temel sınıf
     {
         public int Id { get; set; }
         public string Name { get; set; }    

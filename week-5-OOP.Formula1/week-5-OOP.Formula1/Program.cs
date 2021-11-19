@@ -8,6 +8,7 @@ namespace week_5_OOP.Formula1
     {
         static void Main(string[] args)
         {
+            //takımlar oluşturuldu
             Team Team1 = new Team()
             {
                 Id = 1,
@@ -29,7 +30,7 @@ namespace week_5_OOP.Formula1
                 EngineName = "Honda",
                 Point = 0
             };
-
+            //sürücüler oluşturuldu
             TeamDriver Driver1 = new TeamDriver() { Id = 1, Name = "Charles", Surname = "Leclerc", CarNo = 16, Point = 0, Team = Team1 };
             TeamDriver Driver2 = new TeamDriver() { Id = 2, Name = "Carlos", Surname = " Sainz", CarNo = 55, Point = 0, Team = Team1 };
             TeamDriver Driver3 = new TeamDriver() { Id = 3, Name = "Max", Surname = "Verstappen", CarNo = 33, Point = 0, Team = Team3 };
@@ -38,7 +39,7 @@ namespace week_5_OOP.Formula1
             TeamDriver Driver6 = new TeamDriver() { Id=6,Name="Valtteri",Surname="Bottas",CarNo=77,Point=0,Team=Team2};
 
 
-
+            //takımlara ve sürücülere puanlar eklendi 
             PointAdd Point1 = new PointAdd();
             Point1.Add(25, Driver3);
             Point1.Add(18, Driver4);

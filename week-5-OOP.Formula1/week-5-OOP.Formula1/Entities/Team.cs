@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week_5_OOP.Formula1.Entities
 {
-    public class Team : IEntity
+    public class Team : IEntity//temel sınıftan alınan özellikler
     {
         public int Id { get; set; }
         public string Name { get; set; }

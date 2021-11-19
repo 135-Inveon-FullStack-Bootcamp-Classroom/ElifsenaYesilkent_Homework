@@ -9,7 +9,7 @@ namespace week_5_OOP.Formula1.Business
 {
     public class PointAdd
     {
-        public void Add(int point,TeamDriver driver)
+        public void Add(int point,TeamDriver driver)//poanların hesaplandığı class
         {
 
             driver.Point += point;
