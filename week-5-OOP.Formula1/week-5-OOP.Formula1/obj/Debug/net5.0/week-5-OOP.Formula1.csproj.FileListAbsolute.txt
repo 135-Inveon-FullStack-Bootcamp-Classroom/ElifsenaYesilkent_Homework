@@ -1,0 +1,16 @@
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.exe
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.deps.json
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.runtimeconfig.json
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.runtimeconfig.dev.json
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.dll
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\ref\week-5-OOP.Formula1.dll
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\bin\Debug\net5.0\week-5-OOP.Formula1.pdb
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.csproj.AssemblyReference.cache
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.GeneratedMSBuildEditorConfig.editorconfig
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.AssemblyInfoInputs.cache
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.AssemblyInfo.cs
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.csproj.CoreCompileInputs.cache
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.dll
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\ref\week-5-OOP.Formula1.dll
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.pdb
+C:\React_Bootcamp\Odevler\github\week-5-OOP.Formula1\week-5-OOP.Formula1\obj\Debug\net5.0\week-5-OOP.Formula1.genruntimeconfig.cache
