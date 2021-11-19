@@ -43,6 +43,10 @@ namespace week_5_OOP.Formula1
             Point1.Add(25, Driver3);
             Point1.Add(18, Driver4);
             Point1.Add(18, Driver4);
+            Point1.Add(15, Driver5);
+            Point1.Add(12, Driver6);
+            Point1.Add(10, Driver1);
+
 
 
 
