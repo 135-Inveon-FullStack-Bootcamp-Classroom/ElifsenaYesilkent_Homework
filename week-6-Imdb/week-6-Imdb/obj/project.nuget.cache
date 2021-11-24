@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0BNMeMJx/r0yUElYp/+Q/bfBbX3pxzMUZcfOkT2AH+fdm2U07OgQ93AAPqP9vdVxUGkzxzlYlwEqpUe6kGJtog==",
+  "dgSpecHash": "VMj4nRnOBBO2TUR6E46fg8QT+RjCqZY+8GqbnYFKqqEQCJsxmI3l7tjcLYWZv/9PEIZNHfb01/V9U6YMYDfCaw==",
   "success": true,
-  "projectFilePath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Movies\\week-6-Movies\\week-6-Movies.csproj",
+  "projectFilePath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Imdb\\week-6-Imdb\\week-6-Imdb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sony\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Sony\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

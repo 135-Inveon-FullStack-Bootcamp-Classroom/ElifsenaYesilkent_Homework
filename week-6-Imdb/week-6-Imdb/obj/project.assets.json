@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Movies\\week-6-Movies\\week-6-Movies.csproj",
-      "projectName": "week-6-Movies",
-      "projectPath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Movies\\week-6-Movies\\week-6-Movies.csproj",
+      "projectUniqueName": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Imdb\\week-6-Imdb\\week-6-Imdb.csproj",
+      "projectName": "week-6-Imdb",
+      "projectPath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Imdb\\week-6-Imdb\\week-6-Imdb.csproj",
       "packagesPath": "C:\\Users\\Sony\\.nuget\\packages\\",
-      "outputPath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Movies\\week-6-Movies\\obj\\",
+      "outputPath": "C:\\React_Bootcamp\\Odevler\\github\\week-6-Imdb\\week-6-Imdb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sony\\AppData\\Roaming\\NuGet\\NuGet.Config",

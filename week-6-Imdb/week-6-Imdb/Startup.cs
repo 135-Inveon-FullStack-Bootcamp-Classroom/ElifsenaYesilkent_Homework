@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace week_6_Movies
+namespace week_6_Imdb
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace week_6_Movies
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "week_6_Movies", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "week_6_Imdb", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace week_6_Movies
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "week_6_Movies v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "week_6_Imdb v1"));
             }
 
             app.UseHttpsRedirection();

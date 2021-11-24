@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace week_6_Movies
+namespace week_6_Imdb
 {
     public class Program
     {

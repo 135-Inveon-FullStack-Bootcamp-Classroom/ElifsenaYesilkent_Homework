@@ -1,6 +1,6 @@
 using System;
 
-namespace week_6_Movies
+namespace week_6_Imdb
 {
     public class WeatherForecast
     {
