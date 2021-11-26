@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using week_6_Imdb.Entitites;
 
 namespace week_6_Imdb.Controllers
 {
@@ -18,11 +19,26 @@ namespace week_6_Imdb.Controllers
         [HttpGet]
         public IActionResult GetMovies()
         {
-  
-
             var movies = _dbContext.Movies.ToList();
 
             return Ok(movies);
         }
+
+        [HttpPost]
+        public IActionResult MoviesAdd([FromBody] Movies movie)
+        {
+            _dbContext.Movies.Add(movie);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult MoviesRemove([FromBody] Movies movie)
+        {
+            _dbContext.Movies.Remove(movie);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
+
     }
 }
