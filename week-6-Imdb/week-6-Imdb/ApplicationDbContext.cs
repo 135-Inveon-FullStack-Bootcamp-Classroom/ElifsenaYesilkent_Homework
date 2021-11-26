@@ -10,5 +10,8 @@ namespace week_6_Imdb
 
         }
         public DbSet<Movies> Movies { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<Actor> Actor { get; set; }
+        public DbSet<Award> Award { get; set; }
     }
 }
