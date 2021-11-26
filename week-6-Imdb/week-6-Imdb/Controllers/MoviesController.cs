@@ -25,15 +25,24 @@ namespace week_6_Imdb.Controllers
         }
 
         [HttpPost]
-        public IActionResult MoviesAdd([FromBody] Movies movie)
+        public IActionResult AddMovies([FromBody] Movies movie)
         {
             _dbContext.Movies.Add(movie);
             _dbContext.SaveChanges();
             return Ok();
         }
+        
+
+        [HttpPut]
+        public IActionResult UpdateMovies([FromBody] Movies movie)
+        {
+            _dbContext.Movies.Update(movie);
+            _dbContext.SaveChanges();
+            return Ok();
+        }
 
         [HttpDelete]
-        public IActionResult MoviesRemove([FromBody] Movies movie)
+        public IActionResult RemoveMovies([FromBody] Movies movie)
         {
             _dbContext.Movies.Remove(movie);
             _dbContext.SaveChanges();
