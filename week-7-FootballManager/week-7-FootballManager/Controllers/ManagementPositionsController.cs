@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using week_7_FootballManager.Data;
 using week_7_FootballManager.Entitites;
+using week_7_FootballManager.UnitOfWork;
 
 namespace week_7_FootballManager.Controllers
 {
@@ -14,32 +15,26 @@ namespace week_7_FootballManager.Controllers
     [ApiController]
     public class ManagementPositionsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-
-        public ManagementPositionsController(ApplicationDbContext context)
+        private readonly IUnitOfWork _unitOfWork;
+        public ManagementPositionsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/ManagementPositions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ManagementPosition>>> GetManagementPositions()
         {
-            return await _context.ManagementPositions.ToListAsync();
+            var managementPositions = await _unitOfWork.ManagementPositionService.GetAllAsync();
+            return Ok(managementPositions);
         }
 
         // GET: api/ManagementPositions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ManagementPosition>> GetManagementPosition(int id)
         {
-            var managementPosition = await _context.ManagementPositions.FindAsync(id);
-
-            if (managementPosition == null)
-            {
-                return NotFound();
-            }
-
-            return managementPosition;
+            var managementPosition = await _unitOfWork.ManagementPositionService.GetAsync(id);
+            return Ok(managementPosition);
         }
 
         // PUT: api/ManagementPositions/5
@@ -47,29 +42,7 @@ namespace week_7_FootballManager.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutManagementPosition(int id, ManagementPosition managementPosition)
         {
-            if (id != managementPosition.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(managementPosition).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ManagementPositionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _unitOfWork.ManagementPositionService.UpdateAsync(id, managementPosition);
             return NoContent();
         }
 
@@ -78,31 +51,18 @@ namespace week_7_FootballManager.Controllers
         [HttpPost]
         public async Task<ActionResult<ManagementPosition>> PostManagementPosition(ManagementPosition managementPosition)
         {
-            _context.ManagementPositions.Add(managementPosition);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetManagementPosition", new { id = managementPosition.Id }, managementPosition);
+            var crtCoach = await _unitOfWork.ManagementPositionService.CreateAsync(managementPosition);
+            return Ok(crtCoach);
         }
 
         // DELETE: api/ManagementPositions/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteManagementPosition(int id)
         {
-            var managementPosition = await _context.ManagementPositions.FindAsync(id);
-            if (managementPosition == null)
-            {
-                return NotFound();
-            }
-
-            _context.ManagementPositions.Remove(managementPosition);
-            await _context.SaveChangesAsync();
-
+            await _unitOfWork.ManagementPositionService.DeleteAsync(id);
             return NoContent();
         }
 
-        private bool ManagementPositionExists(int id)
-        {
-            return _context.ManagementPositions.Any(e => e.Id == id);
-        }
+     
     }
 }

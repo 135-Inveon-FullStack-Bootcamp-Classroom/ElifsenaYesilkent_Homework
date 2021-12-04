@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using week_7_FootballManager.Data;
 using week_7_FootballManager.Entitites;
+using week_7_FootballManager.UnitOfWork;
 
 namespace week_7_FootballManager.Controllers
 {
@@ -14,32 +15,27 @@ namespace week_7_FootballManager.Controllers
     [ApiController]
     public class ManagersController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ManagersController(ApplicationDbContext context)
+        public ManagersController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/Managers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Manager>>> GetManagers()
         {
-            return await _context.Managers.ToListAsync();
+            var coaches = await _unitOfWork.ManagerService.GetAllAsync();
+            return Ok(coaches);
         }
 
         // GET: api/Managers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Manager>> GetManager(int id)
         {
-            var manager = await _context.Managers.FindAsync(id);
-
-            if (manager == null)
-            {
-                return NotFound();
-            }
-
-            return manager;
+            var maanger = await _unitOfWork.ManagerService.GetAsync(id);
+            return Ok(maanger);
         }
 
         // PUT: api/Managers/5
@@ -47,29 +43,7 @@ namespace week_7_FootballManager.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutManager(int id, Manager manager)
         {
-            if (id != manager.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(manager).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ManagerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _unitOfWork.ManagerService.UpdateAsync(id, manager);
             return NoContent();
         }
 
@@ -78,31 +52,18 @@ namespace week_7_FootballManager.Controllers
         [HttpPost]
         public async Task<ActionResult<Manager>> PostManager(Manager manager)
         {
-            _context.Managers.Add(manager);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetManager", new { id = manager.Id }, manager);
+            var crtManager = await _unitOfWork.ManagerService.CreateAsync(manager);
+            return Ok(crtManager);
         }
 
         // DELETE: api/Managers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteManager(int id)
         {
-            var manager = await _context.Managers.FindAsync(id);
-            if (manager == null)
-            {
-                return NotFound();
-            }
-
-            _context.Managers.Remove(manager);
-            await _context.SaveChangesAsync();
-
+            await _unitOfWork.ManagerService.DeleteAsync(id);
             return NoContent();
         }
 
-        private bool ManagerExists(int id)
-        {
-            return _context.Managers.Any(e => e.Id == id);
-        }
+       
     }
 }

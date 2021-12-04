@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using week_7_FootballManager.Data;
 using week_7_FootballManager.Entitites;
+using week_7_FootballManager.UnitOfWork;
 
 namespace week_7_FootballManager.Controllers
 {
@@ -14,32 +15,26 @@ namespace week_7_FootballManager.Controllers
     [ApiController]
     public class NationalTeamsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-
-        public NationalTeamsController(ApplicationDbContext context)
+        private readonly IUnitOfWork _unitOfWork;
+        public NationalTeamsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: api/NationalTeams
         [HttpGet]
         public async Task<ActionResult<IEnumerable<NationalTeam>>> GetNationalTeams()
         {
-            return await _context.NationalTeams.ToListAsync();
+            var nationalTeam = await _unitOfWork.NationalTeamService.GetAllAsync();
+            return Ok(nationalTeam);
         }
 
         // GET: api/NationalTeams/5
         [HttpGet("{id}")]
         public async Task<ActionResult<NationalTeam>> GetNationalTeam(int id)
         {
-            var nationalTeam = await _context.NationalTeams.FindAsync(id);
-
-            if (nationalTeam == null)
-            {
-                return NotFound();
-            }
-
-            return nationalTeam;
+            var nationalTeam = await _unitOfWork.NationalTeamService.GetAsync(id);
+            return Ok(nationalTeam);
         }
 
         // PUT: api/NationalTeams/5
@@ -47,29 +42,7 @@ namespace week_7_FootballManager.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutNationalTeam(int id, NationalTeam nationalTeam)
         {
-            if (id != nationalTeam.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(nationalTeam).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!NationalTeamExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _unitOfWork.NationalTeamService.UpdateAsync(id, nationalTeam);
             return NoContent();
         }
 
@@ -78,31 +51,18 @@ namespace week_7_FootballManager.Controllers
         [HttpPost]
         public async Task<ActionResult<NationalTeam>> PostNationalTeam(NationalTeam nationalTeam)
         {
-            _context.NationalTeams.Add(nationalTeam);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetNationalTeam", new { id = nationalTeam.Id }, nationalTeam);
+            var crtNationalTeam = await _unitOfWork.NationalTeamService.CreateAsync(nationalTeam);
+            return Ok(crtNationalTeam);
         }
 
         // DELETE: api/NationalTeams/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNationalTeam(int id)
         {
-            var nationalTeam = await _context.NationalTeams.FindAsync(id);
-            if (nationalTeam == null)
-            {
-                return NotFound();
-            }
-
-            _context.NationalTeams.Remove(nationalTeam);
-            await _context.SaveChangesAsync();
-
+            await _unitOfWork.NationalTeamService.DeleteAsync(id);
             return NoContent();
         }
 
-        private bool NationalTeamExists(int id)
-        {
-            return _context.NationalTeams.Any(e => e.Id == id);
-        }
+
     }
 }
