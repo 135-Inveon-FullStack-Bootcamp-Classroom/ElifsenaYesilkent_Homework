@@ -1,5 +1,5 @@
 ﻿using System;
-using week_7_FootballManager.Entitites.EntityBases;
+using week_7_FootballManager.EntityBases;
 
 namespace week_7_FootballManager.Entitites
 {

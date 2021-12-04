@@ -19,21 +19,6 @@ namespace week_7_FootballManager.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FootballerPosition", b =>
-                {
-                    b.Property<int>("FootballersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PositionsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FootballersId", "PositionsId");
-
-                    b.HasIndex("PositionsId");
-
-                    b.ToTable("FootballerPosition");
-                });
-
             modelBuilder.Entity("week_7_FootballManager.Entitites.Coach", b =>
                 {
                     b.Property<int>("Id")
@@ -75,13 +60,29 @@ namespace week_7_FootballManager.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NationalTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NationalTeamId");
+
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Footballers");
                 });
@@ -210,6 +211,9 @@ namespace week_7_FootballManager.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Teams");
@@ -224,22 +228,22 @@ namespace week_7_FootballManager.Migrations
                     b.HasDiscriminator().HasValue("NationalTeam");
                 });
 
-            modelBuilder.Entity("FootballerPosition", b =>
+            modelBuilder.Entity("week_7_FootballManager.Entitites.Coach", b =>
                 {
-                    b.HasOne("week_7_FootballManager.Entitites.Footballer", null)
+                    b.HasOne("week_7_FootballManager.Entitites.NationalTeam", "NationalTeam")
                         .WithMany()
-                        .HasForeignKey("FootballersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("NationalTeamId");
 
-                    b.HasOne("week_7_FootballManager.Entitites.Position", null)
+                    b.HasOne("week_7_FootballManager.Entitites.Team", "Team")
                         .WithMany()
-                        .HasForeignKey("PositionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
+
+                    b.Navigation("NationalTeam");
+
+                    b.Navigation("Team");
                 });
 
-            modelBuilder.Entity("week_7_FootballManager.Entitites.Coach", b =>
+            modelBuilder.Entity("week_7_FootballManager.Entitites.Footballer", b =>
                 {
                     b.HasOne("week_7_FootballManager.Entitites.NationalTeam", "NationalTeam")
                         .WithMany()

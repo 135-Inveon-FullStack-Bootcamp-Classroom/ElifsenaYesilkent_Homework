@@ -19,7 +19,7 @@ namespace week_6_Imdb.Controllers
         [HttpGet]
         public IActionResult GetNews()
         {
-            var news = _dbContext.Actor.ToList();
+            var news = _dbContext.News.ToList();
 
             return Ok(news);
         }

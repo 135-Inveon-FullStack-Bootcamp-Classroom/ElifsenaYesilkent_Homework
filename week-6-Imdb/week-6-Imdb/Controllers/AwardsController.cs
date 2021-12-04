@@ -19,7 +19,7 @@ namespace week_6_Imdb.Controllers
         [HttpGet]
         public IActionResult GetAward()
         {
-            var award = _dbContext.Award.ToList();
+            var award = _dbContext.Awards.ToList();
 
             return Ok(award);
         }
@@ -27,7 +27,7 @@ namespace week_6_Imdb.Controllers
         [HttpPost]
         public IActionResult AddAward([FromBody] Award award)
         {
-            _dbContext.Award.Add(award);
+            _dbContext.Awards.Add(award);
             _dbContext.SaveChanges();
             return Ok();
         }
@@ -36,7 +36,7 @@ namespace week_6_Imdb.Controllers
         [HttpPut]
         public IActionResult UpdateAward([FromBody] Award award)
         {
-            _dbContext.Award.Update(award);
+            _dbContext.Awards.Update(award);
             _dbContext.SaveChanges();
             return Ok();
         }
@@ -44,7 +44,7 @@ namespace week_6_Imdb.Controllers
         [HttpDelete]
         public IActionResult RemoveAward([FromBody] Award award)
         {
-            _dbContext.Award.Remove(award);
+            _dbContext.Awards.Remove(award);
             _dbContext.SaveChanges();
             return Ok();
         }

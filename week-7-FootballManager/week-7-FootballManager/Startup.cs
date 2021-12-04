@@ -13,6 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using week_7_FootballManager.Data;
+using week_7_FootballManager.ServiceImplementations;
+using week_7_FootballManager.SeviceAbstracts;
+using week_7_FootballManager.UnitOfWork;
 
 namespace week_7_FootballManager
 {
@@ -28,7 +31,21 @@ namespace week_7_FootballManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddTransient<ITeamService,TeamService>();
+            services.AddTransient<IFootballerService, FootballerService>();
+            services.AddTransient<ICoachService, CoachService>();
+            services.AddTransient<IManagerService, ManagerService>();
+            services.AddTransient<ICoachService, CoachService>();
+            services.AddTransient<ICoachService, CoachService>();
+            services.AddTransient<ICoachService, CoachService>();
+            services.AddTransient<ICoachService, CoachService>();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork.UnitOfWork>();
+            services.AddDbContext<ApplicationDbContext>(x =>
+            {
+                x.UseSqlServer(Configuration.GetConnectionString("Default"));
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

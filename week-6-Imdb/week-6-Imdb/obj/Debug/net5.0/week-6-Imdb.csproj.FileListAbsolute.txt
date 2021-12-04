@@ -56,3 +56,5 @@ C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\obj\Debug\net5.0\week-6
 C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\obj\Debug\net5.0\ref\week-6-Imdb.dll
 C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\obj\Debug\net5.0\week-6-Imdb.pdb
 C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\obj\Debug\net5.0\week-6-Imdb.genruntimeconfig.cache
+C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\bin\Debug\net5.0\Humanizer.dll
+C:\React_Bootcamp\Odevler\github\week-6-Imdb\week-6-Imdb\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
